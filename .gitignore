@@ -17,3 +17,7 @@
 
 # Direnv
 .envrc
+
+# Hugo
+/resources
+/public
