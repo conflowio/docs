@@ -118,7 +118,7 @@ version = "0.0"
 url_latest_version = "https://conflow.io"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/opsidian/conflow"
+github_repo = "https://github.com/conflowio/docs"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 # github_project_repo = ""
 
@@ -194,7 +194,7 @@ enable = false
     desc = "Follow us on Twitter to get the latest news!"
 [[params.links.developer]]
 	name = "GitHub"
-	url = "https://github.com/opsidian/conflow"
+	url = "https://github.com/conflowio/conflow"
 	icon = "fab fa-github"
     desc = "GitHub"
 # [[params.links.developer]]
