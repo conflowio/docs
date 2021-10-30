@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Conflow Documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conflowio/docs.git"
+  },
+  "author": "Opsidian Ltd.",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/conflowio/docs/issues"
+  },
+  "homepage": "https://github.com/conflowio/docs#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1"
+  }
+}
