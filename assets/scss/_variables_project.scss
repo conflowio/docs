@@ -1,2 +1,79 @@
 $dark: #303030 !default;
 $secondary: #303030 !default;
+
+.td-cover-block {
+    h1 {
+        font-size: 2.25rem ! important;
+    }
+}
+
+pre>code {
+    text-align: left ! important;
+
+    display: block;
+    background-color: #eee;
+}
+
+.td-default main > section:first-of-type {
+    padding-top: 4rem ! important;
+}
+
+// TODO: this was copy-pasted from themes/docsy/assets/scss/_code.scss
+$black: #000 !default;
+$border-radius: .25rem !default;
+$gray-100: #f8f9fa !default;
+$spacer: 1rem;
+
+.td-box {
+	// Highlighted code.
+    .highlight {
+        @extend .card;
+
+        margin: 2rem 0;
+        padding: 0;
+
+        pre {
+            margin: 0;
+            padding: 1rem;
+        }
+    }
+
+    // Inline code
+    p code, li > code, table code {
+        color: inherit;
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        word-break: normal;
+        background-color: rgba($black, 0.05);
+        border-radius: $border-radius;
+
+        br {
+            display: none;
+        }
+    }
+
+
+    // Code blocks
+    pre {
+        word-wrap: normal;
+        background-color: $gray-100;
+        padding: $spacer;
+
+
+        > code {
+	    background-color: inherit !important;
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            border: 0;
+        }
+    }
+
+    pre.mermaid {
+        background-color: inherit;
+        font-size: 0;
+    }
+}

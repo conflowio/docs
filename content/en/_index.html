@@ -4,7 +4,7 @@ linkTitle = "Conflow"
 
 +++
 
-{{< blocks/cover title="Configuration and workflow language" image_anchor="top" height="full" color="dark" >}}
+{{< blocks/cover title="Conflow - Configuration and workflow language" image_anchor="top" height="full" color="dark" >}}
 <div class="mx-auto">
     <a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
     Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -14,3 +14,135 @@ linkTitle = "Conflow"
     </a>
 </div>
 {{< /blocks/cover >}}
+
+{{% blocks/lead color="primary" %}}
+Conflow is a **strongly typed** configuration language focusing on **simplicity** and **usability**.
+
+It makes conscious choices, so you can be **more productive** and **make less mistakes**.
+
+If you are tired using YAML, hopefully you'll love Conflow.
+{{% /blocks/lead %}}
+
+{{< blocks/section color="white" >}}
+
+{{% blocks/feature icon="fa-code" title="Simple syntax" %}}
+```text
+@description "This is a block"
+web_1 server {
+  ip = "10.0.0.1"
+  termination_protection = true
+  graceful_shutdown {
+    timeout = 5m
+  }
+}
+```
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-square-root-alt" title="Dynamic expressions" %}}
+```text
+hostname := "WEB-1"
+disk_size_gb := 10
+
+web_1 server {
+    hostname = strings.lower(main.hostname)
+    disk_size_mb = main.disk_size_gb * 1024
+}
+```
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-code-branch" title="Dependency management" %}}
+```text
+web_1 server {
+    private_ip = "10.0.0.1"
+}
+
+my_website app {
+    private_ip = web_1.private_ip
+}
+```
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
+
+{{% blocks/lead color="primary" %}}
+Conflow is also a **dynamic** workflow engine with rich controls.
+
+It can be used for writing command line applications, automation tools (CI/CD workflows),
+infrastructure management frameworks, etc.
+
+{{% /blocks/lead %}}
+
+{{< blocks/section color="white" >}}
+
+{{% blocks/feature icon="fa-code" title="Define a new block (Go)" %}}
+```go
+// @block
+type Hello struct {
+    // @required
+    // @minLength 1
+    greeting string
+    // @required
+    // @minLength 1
+    to string
+    // @read_only
+    result string
+}
+
+func (h *Hello) Run(ctx context.Context)
+    (conflow.Result, error) {
+    h.result := fmt.Sprintf(
+        "%s %s!",
+        strings.Title(h.greeting),
+        h.to
+    )
+    return nil, err
+}
+```
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-code" title="Define a new function (Go)" %}}
+```go
+// @function
+func RandomGreeting() string {
+    opts := []string{"Hello", "Hi", "Hey"}
+    return opts[rand.Intn(len(opts))]
+}
+```
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-file-alt" title="Use your new definitions" %}}
+```text
+name := "Johnny"
+
+my_hello hello {
+  greeting = random_greeting()
+  to = main.name
+}
+
+@description "This will print to the stdout"
+println {
+  value = my_hello.greeting
+}
+```
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
+
+{{< blocks/section >}}
+
+{{% blocks/feature icon="fa-spell-check" title="JSON schema" %}}
+Conflow uses JSON schema to define data types. It is used for static checking and generating documentation.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-code" title="Code generation" %}}
+Conflow generates all required source code for your blocks and functions. No reflection is required at runtime.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-sync" title="Continuous workflows" %}}
+Conflow allows you to define workflows which can run until stopped.
+E.g. you can implement a block to continuously read and process messages from a queue.
+{{% /blocks/feature %}}
+
+
+{{< /blocks/section >}}
