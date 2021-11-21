@@ -1,6 +1,9 @@
 baseURL = "/"
 title = "Conflow"
 
+# Ignore any directories which name starts with an underscore
+ignoreFiles = [".*/_.*/.*"]
+
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
