@@ -12,7 +12,7 @@ description: A directive block can attach metadata to blocks and parameters, or 
 Directive blocks have the following rules:
 - name is not allowed
 - block type starts with `@`
-- user defined parameters are not allowed
+- user-defined parameters are not allowed
 - directive blocks can not have directives
 
 Directives always belong to the next non-directive block or parameter.

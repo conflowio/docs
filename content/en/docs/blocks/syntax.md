@@ -5,7 +5,7 @@ weight: 1
 description: Learn about how to define a block
 ---
 
-The **block** consists of the following:
+A **block** consists of the following:
  - **name** (optional): Can only contain lowercase letters, numbers and underscores.
    Must start with a letter. Must be globally unique.
  - **type**: Defines the type of the block.
@@ -26,7 +26,7 @@ A **value expression** can be:
 [block name] [block type] {
    [parameter name] = [value expression]
    
-   [user defined parameter name] := [value expression]
+   [user-defined parameter name] := [value expression]
    
    [child block name] [child block type] {
       ...
@@ -52,7 +52,7 @@ You can define additional parameters on a block by using `:=` instead of `=`.
 
 ```conflow
 [block name] [block type] {
-   [user defined parameter name] := [value expression]
+   [user-defined parameter name] := [value expression]
 }
 ```
 
@@ -82,7 +82,7 @@ This is equivalent to:
 Directive blocks have the following rules:
  - name is not allowed
  - block type starts with `@`
- - user defined parameters are not allowed
+ - user-defined parameters are not allowed
  - directive blocks can not have directives
  
 ```conflow
